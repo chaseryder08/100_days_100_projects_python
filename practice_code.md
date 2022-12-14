@@ -124,3 +124,99 @@ my_function(a=1, b=2, C=3)
 import math
 
 math.ciel(area)
+
+# DICTIONARY
+* {key: value, key: value}
+* programming_dict["Bug"] - this is how you call specifc parts are dict
+* you list the key , not index
+
+bugs = {
+    "Butterfly": "jkashdaskljdsa",
+    "Grasshopper": "green thing",
+}
+
+bugs["Butterfly"]
+
+#Adding new items to dictionary
+bugs["Loop"] = "This is what a loop is"
+
+> good idea to create empty dict = {}
+
+empty_dict = {}
+
+## Edit dictionary
+>edit file, if not there will create new item
+bugs["Butterfly"] = new value
+
+
+## loop through dictionary
+for thing in programming_dict:
+    print(thing)
+
+> this will print out all keys
+
+# Nesting dictionary
+{ 
+    Key: [list],
+    Key2: {Dict},
+}
+
+can put list and dictionaries INSIDE dict
+
+Dictionary called by KEY name
+List called by index number
+
+#Dictionary in a list
+
+travel_log = [
+    {
+        "country": "France", 
+        "cities_visited": ["Paris", "Nice", "Lille"], 
+        "total_visits": 12
+    },
+    {
+        "country": "Germany", 
+        "cities_visited": ["Berlin", "Hamburg"], 
+        "total_visits": 6
+        },
+]
+
+# Day 10
+
+functions
+
+we have :
+
+def func():
+
+def func_mult(result):
+    result = 3*2
+    return result
+
+var_mic = func_mult(result)
+
+def format_name(f_name, l_name):
+    if f_name = "" or l_name == "":
+        return "not a valid entry"
+    formated_f_name = f_name.title()
+    formated_l_name = l_name.title()
+    return f"Result: {f_name}, {l_name}"
+
+print(format_name(input("Type in your name", "type in your second name"))
+    
+# DOCSTRINGS
+> """ comments extended - will also show documentation """
+>
+> def doc_string_func():
+>   """ this is my doc string """
+
+This will show info
+It can also be used for comments
+
+# Return vs Print()
+RETURN will end if statement
+
+if user_scire == 0:
+ return "you win"
+elif computer = 21
+    r
