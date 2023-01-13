@@ -220,3 +220,18 @@ if user_scire == 0:
  return "you win"
 elif computer = 21
     r
+# Classes
+## OOP
+
+class User:
+
+    def __init__(self, username, id):
+        self.username = username
+        self.id = user_id
+        self.followers = 0
+
+    
+## create object
+
+user_1 = User("Joe", "001")
+

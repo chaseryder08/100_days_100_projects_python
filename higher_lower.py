@@ -1,51 +1,55 @@
-from art import logo, vs
-from game_data import data
-import random
+{account_country}"
 
-#TODO break down into steps
-#Start easiest to hardest
+def check_answer(guess, a_followers, b_followers):
+  """Take user guess and follower counts and retun if it is right"""
+  if a_followers > b_followers:
+    return guess == "a"
+  else:
+    return guess == "b"
 
-score = 0
 
-#print logo
 print(logo)
+score = 0
+game_should_continue = True
+account_b = random.choice(data)
 
+#Make Game repeatable
+while game_should_continue:
+  #Generate a random account from the game data
+  account_a = account_b
+  account_b = random.choice(data)  
+  
+  while account_a == account_b:
+    account_b = random.choice(data)
+  
+  print(f"Compare A: {format_data(account_a)}.")
+  print(vs)
+  print(f"Compare B: {format_data(account_b)}.")  
+  
+  # Ask user for a guess
+  guess = input("Who has more followers? Guess A or B : ").lower()
+  
+  #Check if user is correct
+  #Get follower account
+  a_follower_account = account_a["follower_count"]
+  b_follower_account = account_b["follower_count"]
+  ##Check follow count for each account
+  ##Use if statement to check if user is correct
+  
+  is_correct = check_answer(guess, a_follower_account, b_follower_account)
+  #Clear screen
+  clear()
+  print(logo)
+  
+  #Give user feedback on their guess
+  if is_correct:
+    #Score keeping
+    score += 1
+    print(f"You're right! Current score: {score}")
+  else:
+    game_should_continue = False
+    print(f"Sorry, you're wrong - Final score {score}")
 
-#Select random items in game_data list
-def random_choice():
-    choice = random.choice(data)
-    return choice
     
-choice_A = random_choice()
-choice_B = random_choice()
+  #Clear Screen
 
-#Print choice A
-print(f"Compare A: {choice_A['name']}, {choice_A['description']}, from {choice_A['country']}.")
-
-#print VS
-print(vs)
-
-#Print choice B
-print(f"Compare B: {choice_B['name']}, {choice_B['description']}, from {choice_B['country']}.")
-
-#Input user to select A or B
-select = input("Who has more followers? Type 'A' or 'B': ").capitalize()
-
-#Compare A and B
-def compare_choices(choice_A, choice_B):
-  if select == "A":
-    if choice_A['follower_count'] > choice_B['follower_count']:
-      return f"You're right! Current score: {score + 1}"
-    else:
-      return "You're wrong -- you lose"
-      exit()
-  elif select == "B":
-    if choice_B['follower_count'] > choice_A['follower_count']:
-      return f"You're right! Current score: {score + 1}"
-    else: 
-      return "You're wrong -- you lose"
-      exit()
-    
-compare_choices(choice_A, choice_B)
-#if correct, on top presents score
-#print(f"You're right! Current score: {score}")
